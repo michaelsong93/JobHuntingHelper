@@ -19,11 +19,11 @@ import java.awt.EventQueue;
  * @author xueyingli
  *
  */
-public class Analyzer extends JFrame {
+public class BarChart extends JFrame {
 	
 	private ArrayList<Position> positions;
 	
-	public Analyzer() {
+	public BarChart() {
 		initUI();
 	}
 	
@@ -87,7 +87,7 @@ public class Analyzer extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            Analyzer ex = new Analyzer();
+            BarChart ex = new BarChart();
             ex.setVisible(true);
         });
     }

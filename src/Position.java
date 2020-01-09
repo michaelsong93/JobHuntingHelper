@@ -20,7 +20,7 @@ public class Position {
 //	String dateSubmitted;
 	Calendar dateSubmitted; // less error-prone when editing/analyzing?
 	String dateToFollowUp;
-	String status;
+	String status; // "No response", "Positive response", "Directly rejected"
 	String comments;
 	ArrayList<Requirement> requirements;
 	
