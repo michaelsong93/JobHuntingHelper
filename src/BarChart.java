@@ -20,76 +20,77 @@ import java.awt.EventQueue;
  *
  */
 public class BarChart extends JFrame {
-	
+
 	private ArrayList<Position> positions;
-	
+
 	public BarChart() {
 		initUI();
 	}
-	
+
 	private void initUI() {
 
-        CategoryDataset dataset = createDataset();
+		CategoryDataset dataset = createDataset();
 
-        JFreeChart chart = createChart(dataset);
-        ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        chartPanel.setBackground(Color.white);
-        add(chartPanel);
+		JFreeChart chart = createChart(dataset);
+		ChartPanel chartPanel = new ChartPanel(chart);
+		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		chartPanel.setBackground(Color.white);
+		add(chartPanel);
 
-        pack();
-        setTitle("Bar chart");
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+		pack();
+		setTitle("# of companies applied each month");
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
 	/**
 	 * Create a month to number dataset for bar chart.
 	 * @return Y-axis is the # of positions applied each month.
 	 */
-    private CategoryDataset createDataset() {
+	private CategoryDataset createDataset() {
 
-    	DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-    	
-//    	HashMap<Integer, Integer> monthToCount = new HashMap<>();
-//    	for (Position p : positions) {
-//    		int month = p.getDateSubmitted().MONTH;
-//    		int count = monthToCount.getOrDefault(month, 0);
-//    		monthToCount.put(month, count + 1);
-//    	}
-    	
-//      for (int month : monthToCount.keySet()) {
-//    	dataset.setValue(monthToCount.get(month), "# of companies", month + 1 + "");
-//    }
-    	
-        dataset.setValue(6, "# of companies", "June");
-        dataset.setValue(7, "# of companies", "July");
-        dataset.setValue(8, "# of companies", "August");
-        dataset.setValue(9, "# of companies", "September");
-        
-        return dataset;
-    }
+		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-    private JFreeChart createChart(CategoryDataset dataset) {
+//		HashMap<Integer, Integer> monthToCount = new HashMap<>();
+//		for (Position p : positions) {
+//			String monthS = p.getDateSubmitted().substring(0, 2);
+//			int month = Integer.parseInt(monthS);
+//			int count = monthToCount.getOrDefault(month, 0);
+//			monthToCount.put(month, count + 1);
+//		}
+//
+//		for (int month : monthToCount.keySet()) {
+//			dataset.setValue(monthToCount.get(month), "# of companies", month + 1 + "");
+//		}
 
-        JFreeChart barChart = ChartFactory.createBarChart(
-                "# of companies applied each month",
-                "Month",
-                "# of companies",
-                dataset,
-                PlotOrientation.VERTICAL,
-                false, true, false);
+		dataset.setValue(6, "# of companies", "June");
+		dataset.setValue(7, "# of companies", "July");
+		dataset.setValue(8, "# of companies", "August");
+		dataset.setValue(9, "# of companies", "September");
 
-        return barChart;
-    }
+		return dataset;
+	}
 
-    public static void main(String[] args) {
+	private JFreeChart createChart(CategoryDataset dataset) {
 
-        EventQueue.invokeLater(() -> {
+		JFreeChart barChart = ChartFactory.createBarChart(
+				"# of companies applied each month",
+				"Month",
+				"# of companies",
+				dataset,
+				PlotOrientation.VERTICAL,
+				false, true, false);
 
-            BarChart ex = new BarChart();
-            ex.setVisible(true);
-        });
-    }
+		return barChart;
+	}
+
+	public static void main(String[] args) {
+
+		EventQueue.invokeLater(() -> {
+
+			BarChart ex = new BarChart();
+			ex.setVisible(true);
+		});
+	}
 }
 

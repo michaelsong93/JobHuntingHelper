@@ -4,8 +4,7 @@ import java.util.concurrent.TimeUnit;
 public class JobHelperRunner {
 
 	public static void main(String[]args) throws InterruptedException {
-		GUI gui = new GUI();
-		gui.play();
+		JobHelperGui gui = new JobHelperGui();
 		
 		// a sample bar chart display
 		EventQueue.invokeLater(() -> {

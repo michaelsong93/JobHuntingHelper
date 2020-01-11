@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Comparator;
 /**
  * This class represents a position.
  * @author sivah
@@ -40,6 +42,48 @@ public class Position {
 		this.status = status;
 		this.comments = comments;
 	}
+	
+	/**
+	 * turn MM/DD/YY to a Calendar object
+	 * @return
+	 */
+	public static Calendar stringToCalendar(String stringDate) {
+		int month = Integer.parseInt(stringDate.substring(0, 2)) - 1;
+		int day = Integer.parseInt(stringDate.substring(3, 5));
+		int year = Integer.parseInt(stringDate.substring(6));
+		Calendar c = Calendar.getInstance();
+		c.set(year, month, day);
+//		System.out.println(c.getTime()); // Fri Jan 10 21:57:17 PST 2020
+		return c;
+	}
+	
+	/**
+	 * sort by date submitted
+	 * @return
+	 */
+	public static Comparator<Position> submittedComparator() {
+        return new Comparator<Position>() {
+
+			@Override
+			public int compare(Position o1, Position o2) {
+				return o1.stringToCalendar(o1.getDateSubmitted()).compareTo(o2.stringToCalendar(o2.getDateSubmitted())); 
+			}
+        };
+    }
+
+	/**
+	 * sort by deadline
+	 * @return
+	 */
+    public static Comparator<Position> deadlineComparator() {
+        return new Comparator<Position>() {
+
+			@Override
+			public int compare(Position o1, Position o2) {
+				return o1.stringToCalendar(o1.getDateDeadline()).compareTo(o2.stringToCalendar(o2.getDateDeadline())); 
+			}
+        };
+    }
 	
 	public String getDateDeadline() {
 		return dateDeadline;
