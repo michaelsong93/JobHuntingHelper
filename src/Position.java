@@ -1,100 +1,157 @@
 import java.util.ArrayList;
-import java.util.Calendar;
-
 /**
- * Store information for a position applied.
- * Methods are only getters and setters. (Changed setters' return type to void, other detailed modification are commented)
- * Analyzer is built based on field variables of Position class. (But feel free to make changes)
- * @author xueyingli
+ * This class represents a position.
+ * @author sivah
  *
  */
 public class Position {
-
-	String companyName;
-	String size;
-	String linkToApplication;
-	String role;
-	String dateDeadline;
-	String recruiterName;
-	String recruiterToLinkedIn;
-//	String dateSubmitted;
-	Calendar dateSubmitted; // less error-prone when editing/analyzing?
-	String dateToFollowUp;
-	String status; // "No response", "Positive response", "Directly rejected"
-	String comments;
-	ArrayList<Requirement> requirements;
 	
-	public String getCompanyName() {
-		return companyName;
-	}
-	public void setCompanyName(String companyName) {
+	private String companyName;
+	private String size; // number of employee (small: 0-49, mid: 50-199, large: 200+)
+	private String appLink; // link to application
+	private String role; // software engineer, internship, full-time, co-op
+	private String resumeStatus;
+	private String coverLetterStatus;
+	private String applicationStatus;
+	private String dateDeadline;
+	private String recruiterName;
+	private String recruiterLinkedIn;
+	private String dateSubmitted; // date the application is submitted
+	private String dateToFollowUp;
+	private String status; // status of the application (applied, take home, on-site, phone screen, rejected, offer, no longer interested)
+	private String comments; // record the status of the application (dates followed up, what you learned, etc)
+	
+	public Position (String companyName, String size, String appLink, String role, 
+			String dateDeadline, String resumeStatus, String coverLetterStatus, String applicationStatus, String recruiterName, String recruiterLinkedIn,
+			String dateSubmitted, String dateToFollowUp, String status, String comments)
+	{
 		this.companyName = companyName;
-	}
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
 		this.size = size;
-	}
-	public String getLinkToApplication() {
-		return linkToApplication;
-	}
-	public void setLinkToApplication(String linkToApplication) {
-		this.linkToApplication = linkToApplication;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
+		this.appLink = appLink;
 		this.role = role;
+		this.dateDeadline = dateDeadline;
+		this.resumeStatus = resumeStatus;
+		this.coverLetterStatus = coverLetterStatus;
+		this.applicationStatus = applicationStatus;
+		this.recruiterName = recruiterName;
+		this.recruiterLinkedIn = recruiterLinkedIn;
+		this.dateSubmitted = dateSubmitted;
+		this.dateToFollowUp = dateToFollowUp;
+		this.status = status;
+		this.comments = comments;
 	}
+	
 	public String getDateDeadline() {
 		return dateDeadline;
 	}
-	public void setDateDeadline(String dateDeadline) {
-		this.dateDeadline = dateDeadline;
+
+	public String getCompanyName() {
+		return companyName;
 	}
-	public String getRecruiterName() {
-		return recruiterName;
-	}
-	public void setRecruiterName(String recruiterName) {
-		this.recruiterName = recruiterName;
-	}
-	public String getRecruiterToLinkedIn() {
-		return recruiterToLinkedIn;
-	}
-	public void setRecruiterToLinkedIn(String recruiterToLinkedIn) {
-		this.recruiterToLinkedIn = recruiterToLinkedIn;
-	}
-	public Calendar getDateSubmitted() {
-		return dateSubmitted;
-	}
-	public void setDateSubmitted(Calendar dateSubmitted) {
-		this.dateSubmitted = dateSubmitted;
-	}
+
 	public String getDateToFollowUp() {
 		return dateToFollowUp;
 	}
+
 	public void setDateToFollowUp(String dateToFollowUp) {
 		this.dateToFollowUp = dateToFollowUp;
 	}
-	public String getStatus() {
-		return status;
+
+	public String getSize() {
+		return size;
 	}
+
+	public String getAppLink() {
+		return appLink;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void setAppLink(String appLink) {
+		this.appLink = appLink;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void setDateDeadline(String dateDeadline) {
+		this.dateDeadline = dateDeadline;
+	}
+
+	public void setDateSubmitted(String dateSubmitted) {
+		this.dateSubmitted = dateSubmitted;
+	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getComments() {
-		return comments;
-	}
+
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public ArrayList<Requirement> getRequirements() {
-		return requirements;
+
+	public String getRole() {
+		return role;
 	}
-	public void setRequirements(ArrayList<Requirement> requirements) {
-		this.requirements = requirements;
+
+	public String getRecruiterName() {
+		return recruiterName;
 	}
+
+	public String getResumeStatus() {
+		return resumeStatus;
+	}
+
+	public void setResumeStatus(String resumeStatus) {
+		this.resumeStatus = resumeStatus;
+	}
+
+	public String getCoverLetterStatus() {
+		return coverLetterStatus;
+	}
+
+	public void setCoverLetterStatus(String coverLetterStatus) {
+		this.coverLetterStatus = coverLetterStatus;
+	}
+
+	public String getApplicationStatus() {
+		return applicationStatus;
+	}
+
+	public void setApplicationStatus(String applicationStatus) {
+		this.applicationStatus = applicationStatus;
+	}
+
+	public void setRecruiterName(String recruiterName) {
+		this.recruiterName = recruiterName;
+	}
+
+	public String getRecruiterLinkedIn() {
+		return recruiterLinkedIn;
+	}
+
+	public void setRecruiterLinkedIn(String recruiterLinkedIn) {
+		this.recruiterLinkedIn = recruiterLinkedIn;
+	}
+
+	public String getDateSubmitted() {
+		return dateSubmitted;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+	
 	
 }
