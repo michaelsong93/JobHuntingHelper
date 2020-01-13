@@ -16,7 +16,7 @@ public class AddDialog extends JDialog implements ActionListener{
 	private String[] statuses = {"Submitted", "Not submitted", "On progress", "Rejected", "No response", "Take home", "On-site", "Phone screen", "Offer", "No longer interested"};
 	private JComboBox statusCB;
 	private BridgeInterface sender;
-	public Actions action = new Actions();
+// 	public Actions action = new Actions();
 	
 	public AddDialog() {
 
