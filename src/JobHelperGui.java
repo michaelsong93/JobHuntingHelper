@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 public class JobHelperGui {
 
 	private JFrame frame;
+	private BridgeInterface upperSender;
 
 	/**
 	 * Launch the application.
@@ -42,22 +43,26 @@ public class JobHelperGui {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		// welcome message
 		JOptionPane.showMessageDialog(null, "Welcome to Job-Hunting Helper!");
-		
+
 		JLabel label = new JLabel("Job-Hunting Helper");
 		label.setBounds(32, 32, 132, 16);
 		frame.getContentPane().add(label);
-		
+
+		// companly list panel
 		JPanel companyListPanel = new JPanel();
 		companyListPanel.setBorder(new TitledBorder(null, "Company List", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		companyListPanel.setBounds(32, 76, 206, 408);
 		frame.getContentPane().add(companyListPanel);
 		companyListPanel.setLayout(null);
-		
+
+		//// list
 		JList list = new JList();
 		list.setBounds(19, 22, 166, 203);
 		companyListPanel.add(list);
-		
+
+		//// buttons
 		JButton addButton = new JButton("Add");
 		addButton.setBounds(29, 237, 156, 29);
 		companyListPanel.add(addButton);
@@ -78,25 +83,25 @@ public class JobHelperGui {
 		deleteButton.setBounds(29, 305, 156, 29);
 		companyListPanel.add(deleteButton);
 		
-		JButton statusCheckButton = new JButton("Status Check");
-		statusCheckButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		statusCheckButton.setBounds(29, 339, 156, 29);
-		companyListPanel.add(statusCheckButton);
-		
-		JButton whatsMissingButton = new JButton("What's Missing?");
-		whatsMissingButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		whatsMissingButton.setBounds(29, 373, 156, 29);
-		companyListPanel.add(whatsMissingButton);
-		addButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+//		JButton statusCheckButton = new JButton("Status Check");
+//		statusCheckButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		statusCheckButton.setBounds(29, 339, 156, 29);
+//		companyListPanel.add(statusCheckButton);
+//		
+//		JButton whatsMissingButton = new JButton("What's Missing?");
+//		whatsMissingButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		whatsMissingButton.setBounds(29, 373, 156, 29);
+//		companyListPanel.add(whatsMissingButton);
+//		addButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
 		
 		JPanel companyInfoPanel = new JPanel();
 		companyInfoPanel.setBorder(new TitledBorder(null, "Company Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));

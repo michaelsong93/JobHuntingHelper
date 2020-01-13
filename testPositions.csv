@@ -1,0 +1,4 @@
+companyName,size,role,resumeStatus,coverLetterStatus,applicationStatus,dateDeadline,dateSubmitted,status,comments
+test1,100,,02/01/2020,,,,1/1/2020,offer,#1
+sss,sss,sss,1/1/2020,Submitted,Submitted,Submitted,1/1/2020,Submitted,sss
+test2,1000,,2/2/2020,,,,1/2/2020,rejected,#2

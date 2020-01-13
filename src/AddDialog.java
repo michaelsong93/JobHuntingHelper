@@ -6,19 +6,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class addPosition extends JDialog {
+public class AddDialog extends JDialog implements ActionListener{
 
-	private JLabel name, size, appLink, role, coverLetter, resume, application, dateDeadline, recruiterName, recruiterLinkedIn, dateSubmitted, status, comments;
-	private JTextField nameField, sizeField, appLinkField, roleField, dateDeadlineField, recruiterNameField, recruiterLinkedInField, dateSubmittedField, commentsField;
+	private JLabel name, size, role, coverLetter, resume, application, dateDeadline, dateSubmitted, status, comments;
+	private JTextField nameField, sizeField, roleField, dateDeadlineField, dateSubmittedField, commentsField;
 	private JButton addButton, exitButton;
 	private JRadioButton coverLetterSubmitted, coverLetterNotYet, coverLetterNotRequired, resumeSubmitted, resumeNotYet, resumeNotRequired, appSubmitted, appNotYet, appNotRequired;
 	private Position position;
 	private String[] statuses = {"Submitted", "Not submitted", "On progress", "Rejected", "No response", "Take home", "On-site", "Phone screen", "Offer", "No longer interested"};
 	private JComboBox statusCB;
-	private LinkPanels sender;
+	private BridgeInterface sender;
 	public Actions action = new Actions();
 	
-	public addPosition() {
+	public AddDialog() {
 
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -27,25 +27,25 @@ public class addPosition extends JDialog {
 
 		name = new JLabel("Company name: ");
 		size = new JLabel("Size: ");
-		appLink = new JLabel("Position website: ");
+//		appLink = new JLabel("Position website: ");
 		role = new JLabel("Role: ");
 		coverLetter = new JLabel("Cover letter: ");
 		resume = new JLabel("Resume: ");
 		application = new JLabel("Application: ");
 		dateDeadline = new JLabel("Deadline (mm/dd/yyyy): ");
-		recruiterName = new JLabel("Name of recruiter: ");
-		recruiterLinkedIn = new JLabel("Recruiter's LinkedIn: ");
+//		recruiterName = new JLabel("Name of recruiter: ");
+//		recruiterLinkedIn = new JLabel("Recruiter's LinkedIn: ");
 		dateSubmitted = new JLabel("Date of submission (mm/dd/yyyy): ");
 		status = new JLabel("Status: ");
 		comments = new JLabel("Comments: ");
 
 		nameField = new JTextField(10);
 		sizeField = new JTextField(10);
-		appLinkField = new JTextField(10);
+//		appLinkField = new JTextField(10);
 		roleField = new JTextField(10);
 		dateDeadlineField = new JTextField(10);
-		recruiterNameField = new JTextField(10);
-		recruiterLinkedInField = new JTextField(10);
+//		recruiterNameField = new JTextField(10);
+//		recruiterLinkedInField = new JTextField(10);
 		dateSubmittedField = new JTextField(10);
 		commentsField = new JTextField(10);
 
@@ -111,18 +111,18 @@ public class addPosition extends JDialog {
 		add(sizeField, gbc);
 
 		// appLink
-		gbc.weightx = 1;
-		gbc.weighty = 0.1;
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.LINE_END;
-		add(appLink, gbc);
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0, 0, 0, 0);
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(appLinkField, gbc);
+//		gbc.weightx = 1;
+//		gbc.weighty = 0.1;
+//		gbc.gridx = 0;
+//		gbc.gridy = 2;
+//		gbc.insets = new Insets(0, 0, 0, 5);
+//		gbc.anchor = GridBagConstraints.LINE_END;
+//		add(appLink, gbc);
+//		gbc.gridx = 1;
+//		gbc.gridy = 2;
+//		gbc.insets = new Insets(0, 0, 0, 0);
+//		gbc.anchor = GridBagConstraints.LINE_START;
+//		add(appLinkField, gbc);
 
 		// role
 		gbc.weightx = 1;
@@ -225,32 +225,32 @@ public class addPosition extends JDialog {
 		add(dateDeadlineField, gbc);
 
 		// recruiter name
-		gbc.weightx = 1;
-		gbc.weighty = 0.1;
-		gbc.gridx = 0;
-		gbc.gridy = 8;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.LINE_END;
-		add(recruiterName, gbc);
-		gbc.gridx = 1;
-		gbc.gridy = 8;
-		gbc.insets = new Insets(0, 0, 0, 0);
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(recruiterNameField, gbc);
+//		gbc.weightx = 1;
+//		gbc.weighty = 0.1;
+//		gbc.gridx = 0;
+//		gbc.gridy = 8;
+//		gbc.insets = new Insets(0, 0, 0, 5);
+//		gbc.anchor = GridBagConstraints.LINE_END;
+//		add(recruiterName, gbc);
+//		gbc.gridx = 1;
+//		gbc.gridy = 8;
+//		gbc.insets = new Insets(0, 0, 0, 0);
+//		gbc.anchor = GridBagConstraints.LINE_START;
+//		add(recruiterNameField, gbc);
 
 		// recruiter LinkedIn
-		gbc.weightx = 1;
-		gbc.weighty = 0.1;
-		gbc.gridx = 0;
-		gbc.gridy = 9;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.LINE_END;
-		add(recruiterLinkedIn, gbc);
-		gbc.gridx = 1;
-		gbc.gridy = 9;
-		gbc.insets = new Insets(0, 0, 0, 0);
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(recruiterLinkedInField, gbc);
+//		gbc.weightx = 1;
+//		gbc.weighty = 0.1;
+//		gbc.gridx = 0;
+//		gbc.gridy = 9;
+//		gbc.insets = new Insets(0, 0, 0, 5);
+//		gbc.anchor = GridBagConstraints.LINE_END;
+//		add(recruiterLinkedIn, gbc);
+//		gbc.gridx = 1;
+//		gbc.gridy = 9;
+//		gbc.insets = new Insets(0, 0, 0, 0);
+//		gbc.anchor = GridBagConstraints.LINE_START;
+//		add(recruiterLinkedInField, gbc);
 
 		// submission date
 		gbc.weightx = 1;
@@ -309,87 +309,80 @@ public class addPosition extends JDialog {
 		gbc.gridy = 13;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(exitButton, gbc);
-
-		exitButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-			
-		});
-		addButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String companyName = nameField.getText();
-				String companySize = sizeField.getText();
-				String applicationLink = appLinkField.getText();
-				String positionRole = roleField.getText();
-				String coverStatus = "";
-				String resumeStatus = "";
-				String appStatus = "";
-				String deadlineDate = dateDeadlineField.getText();
-				String recrName = recruiterNameField.getText();
-				String recrLinkedIn = recruiterLinkedInField.getText();
-				String submitDate = dateSubmittedField.getText();
-				String positionStatus = statusCB.getSelectedItem().toString();
-				String comm = commentsField.getText();
-				
-				if (coverLetterSubmitted.isSelected()) {
-					coverStatus = coverLetterSubmitted.getText();
-				}
-				else if (coverLetterNotYet.isSelected()) {
-					coverStatus = coverLetterNotYet.getText();
-				}
-				else if (coverLetterNotRequired.isSelected()) {
-					coverStatus = coverLetterNotRequired.getText();
-				}
-				
-				if (resumeSubmitted.isSelected()) {
-					resumeStatus = resumeSubmitted.getText();
-				}
-				else if (resumeNotYet.isSelected()) {
-					resumeStatus = resumeNotYet.getText();
-				}
-				else if (resumeNotRequired.isSelected()) {
-					resumeStatus = resumeNotRequired.getText();
-				}
-				
-				if (appSubmitted.isSelected()) {
-					appStatus = appSubmitted.getText();
-				}
-				else if (appNotYet.isSelected()) {
-					appStatus = appNotYet.getText();
-				}
-				else if (appNotRequired.isSelected()) {
-					appStatus = appNotRequired.getText();
-				}
-				
-				Actions ac = new Actions();
-				action.addPosition(companyName, companySize, applicationLink, positionRole, deadlineDate, resumeStatus, coverStatus, appStatus, recrName, recrLinkedIn, submitDate, positionStatus, comm);
-				Position pos = new Position(companyName, companySize, applicationLink, positionRole, deadlineDate, resumeStatus, coverStatus, appStatus, recrName, recrLinkedIn, submitDate, submitDate, positionStatus, comm);
-				//sender.linkObject(pos);
-				
-				System.out.println(action.positions.get(0).getCompanyName());
-				dispose();
-				
-			}
-			
-		});
 		
+		addButton.addActionListener(this);
+		exitButton.addActionListener(this);
+
 	}
 	
-	public void setLink(LinkPanels lp) {
-		sender = lp;
+	public void setBridge(BridgeInterface bridge) {
+		sender = bridge;
 	}
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new addPosition();
+				new AddDialog();
 			}
 		});
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton)e.getSource();
+		
+		if(button == addButton) {
+			String companyName = nameField.getText();
+			String companySize = sizeField.getText();
+//			String applicationLink = appLinkField.getText();
+			String positionRole = roleField.getText();
+			String coverStatus = "";
+			String resumeStatus = "";
+			String appStatus = "";
+			String deadlineDate = dateDeadlineField.getText();
+//			String recrName = recruiterNameField.getText();
+//			String recrLinkedIn = recruiterLinkedInField.getText();
+			String submitDate = dateSubmittedField.getText();
+			String positionStatus = statusCB.getSelectedItem().toString();
+			String comm = commentsField.getText();
+			
+			if (coverLetterSubmitted.isSelected()) {
+				coverStatus = coverLetterSubmitted.getText();
+			}
+			else if (coverLetterNotYet.isSelected()) {
+				coverStatus = coverLetterNotYet.getText();
+			}
+			else if (coverLetterNotRequired.isSelected()) {
+				coverStatus = coverLetterNotRequired.getText();
+			}
+			
+			if (resumeSubmitted.isSelected()) {
+				resumeStatus = resumeSubmitted.getText();
+			}
+			else if (resumeNotYet.isSelected()) {
+				resumeStatus = resumeNotYet.getText();
+			}
+			else if (resumeNotRequired.isSelected()) {
+				resumeStatus = resumeNotRequired.getText();
+			}
+			
+			if (appSubmitted.isSelected()) {
+				appStatus = appSubmitted.getText();
+			}
+			else if (appNotYet.isSelected()) {
+				appStatus = appNotYet.getText();
+			}
+			else if (appNotRequired.isSelected()) {
+				appStatus = appNotRequired.getText();
+			}
+			
+			Position p = new Position(companyName, companySize, positionRole, resumeStatus, coverStatus, appStatus, deadlineDate, submitDate, positionStatus, comm);
+			sender.positionBridge(p);
+			dispose();
+		}
+		else if(button == exitButton) {
+			dispose();
+		}
+		
+	}
 }

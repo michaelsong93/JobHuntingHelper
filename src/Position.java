@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Comparator;
 /**
@@ -10,49 +11,74 @@ public class Position {
 	
 	private String companyName;
 	private String size; // number of employee (small: 0-49, mid: 50-199, large: 200+)
-	private String appLink; // link to application
+//	private String appLink; // link to application
 	private String role; // software engineer, internship, full-time, co-op
 	private String resumeStatus;
 	private String coverLetterStatus;
 	private String applicationStatus;
 	private String dateDeadline;
-	private String recruiterName;
-	private String recruiterLinkedIn;
+//	private String recruiterName;
+//	private String recruiterLinkedIn;
 	private String dateSubmitted; // date the application is submitted
-	private String dateToFollowUp;
+//	private String dateToFollowUp;
 	private String status; // status of the application (applied, take home, on-site, phone screen, rejected, offer, no longer interested)
 	private String comments; // record the status of the application (dates followed up, what you learned, etc)
 	
-	public Position (String companyName, String size, String appLink, String role, 
-			String dateDeadline, String resumeStatus, String coverLetterStatus, String applicationStatus, String recruiterName, String recruiterLinkedIn,
-			String dateSubmitted, String dateToFollowUp, String status, String comments)
+//	public Position (String companyName, String size, String appLink, String role, 
+//			String dateDeadline, String resumeStatus, String coverLetterStatus, String applicationStatus, String recruiterName, String recruiterLinkedIn,
+//			String dateSubmitted, String dateToFollowUp, String status, String comments)
+//	{
+//		this.companyName = companyName;
+//		this.size = size;
+//		this.appLink = appLink;
+//		this.role = role;
+//		this.dateDeadline = dateDeadline;
+//		this.resumeStatus = resumeStatus;
+//		this.coverLetterStatus = coverLetterStatus;
+//		this.applicationStatus = applicationStatus;
+//		this.recruiterName = recruiterName;
+//		this.recruiterLinkedIn = recruiterLinkedIn;
+//		this.dateSubmitted = dateSubmitted;
+//		this.dateToFollowUp = dateToFollowUp;
+//		this.status = status;
+//		this.comments = comments;
+//	}
+	
+	// w/o dateToFollowUp
+	public Position (String companyName, String size, String role, 
+			String dateDeadline, String resumeStatus, String coverLetterStatus, String applicationStatus,
+			String dateSubmitted, String status, String comments)
 	{
 		this.companyName = companyName;
 		this.size = size;
-		this.appLink = appLink;
+//		this.appLink = appLink;
 		this.role = role;
 		this.dateDeadline = dateDeadline;
 		this.resumeStatus = resumeStatus;
 		this.coverLetterStatus = coverLetterStatus;
 		this.applicationStatus = applicationStatus;
-		this.recruiterName = recruiterName;
-		this.recruiterLinkedIn = recruiterLinkedIn;
 		this.dateSubmitted = dateSubmitted;
-		this.dateToFollowUp = dateToFollowUp;
 		this.status = status;
 		this.comments = comments;
 	}
+	
+//	public Position (String companyName) {
+//		this(companyName, "", "", "", "", "", "", "", "", "");
+//	}
 	
 	/**
 	 * turn MM/DD/YY to a Calendar object
 	 * @return
 	 */
 	public static Calendar stringToCalendar(String stringDate) {
-		int month = Integer.parseInt(stringDate.substring(0, 2)) - 1;
-		int day = Integer.parseInt(stringDate.substring(3, 5));
-		int year = Integer.parseInt(stringDate.substring(6));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar c = Calendar.getInstance();
-		c.set(year, month, day);
+		if (stringDate == "") stringDate = "0/0/0";
+		try {
+			c.setTime(dateFormat.parse(stringDate));
+		} catch (ParseException e) {
+			
+		}
 //		System.out.println(c.getTime()); // Fri Jan 10 21:57:17 PST 2020
 		return c;
 	}
@@ -93,21 +119,21 @@ public class Position {
 		return companyName;
 	}
 
-	public String getDateToFollowUp() {
-		return dateToFollowUp;
-	}
-
-	public void setDateToFollowUp(String dateToFollowUp) {
-		this.dateToFollowUp = dateToFollowUp;
-	}
+//	public String getDateToFollowUp() {
+//		return dateToFollowUp;
+//	}
+//
+//	public void setDateToFollowUp(String dateToFollowUp) {
+//		this.dateToFollowUp = dateToFollowUp;
+//	}
 
 	public String getSize() {
 		return size;
 	}
 
-	public String getAppLink() {
-		return appLink;
-	}
+//	public String getAppLink() {
+//		return appLink;
+//	}
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
@@ -117,9 +143,9 @@ public class Position {
 		this.size = size;
 	}
 
-	public void setAppLink(String appLink) {
-		this.appLink = appLink;
-	}
+//	public void setAppLink(String appLink) {
+//		this.appLink = appLink;
+//	}
 
 	public void setRole(String role) {
 		this.role = role;
@@ -145,9 +171,9 @@ public class Position {
 		return role;
 	}
 
-	public String getRecruiterName() {
-		return recruiterName;
-	}
+//	public String getRecruiterName() {
+//		return recruiterName;
+//	}
 
 	public String getResumeStatus() {
 		return resumeStatus;
@@ -173,17 +199,17 @@ public class Position {
 		this.applicationStatus = applicationStatus;
 	}
 
-	public void setRecruiterName(String recruiterName) {
-		this.recruiterName = recruiterName;
-	}
-
-	public String getRecruiterLinkedIn() {
-		return recruiterLinkedIn;
-	}
-
-	public void setRecruiterLinkedIn(String recruiterLinkedIn) {
-		this.recruiterLinkedIn = recruiterLinkedIn;
-	}
+//	public void setRecruiterName(String recruiterName) {
+//		this.recruiterName = recruiterName;
+//	}
+//
+//	public String getRecruiterLinkedIn() {
+//		return recruiterLinkedIn;
+//	}
+//
+//	public void setRecruiterLinkedIn(String recruiterLinkedIn) {
+//		this.recruiterLinkedIn = recruiterLinkedIn;
+//	}
 
 	public String getDateSubmitted() {
 		return dateSubmitted;
